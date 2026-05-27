@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: #0f0f0f;
+  --color-surface: #1a1a1a;
+  --color-surface-hover: #242424;
+  --color-border: #2a2a2a;
+  --color-accent: #ff6b35;
+  --color-accent-light: #ff8c5a;
+  --color-text: #e8e6e3;
+  --color-text-secondary: #999;
+  --color-success: #4ade80;
+  --color-warning: #facc15;
+  --color-danger: #ef4444;
+  --color-info: #60a5fa;
+}
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: #fff;
+  }
+}
+
+@layer components {
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease forwards;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, var(--color-accent-light), var(--color-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    transition: all 0.3s ease;
+  }
+
+  .card:hover {
+    border-color: rgba(255, 107, 53, 0.3);
+    box-shadow: 0 8px 32px rgba(255, 107, 53, 0.06);
+  }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  .tag-primary {
+    background: rgba(255, 107, 53, 0.15);
+    color: var(--color-accent-light);
+  }
+
+  .tag-info {
+    background: rgba(96, 165, 250, 0.15);
+    color: var(--color-info);
+  }
+
+  .tag-success {
+    background: rgba(74, 222, 128, 0.15);
+    color: var(--color-success);
+  }
+
+  .tag-warning {
+    background: rgba(250, 204, 21, 0.15);
+    color: var(--color-warning);
+  }
+
+  .tag-danger {
+    background: rgba(239, 68, 68, 0.15);
+    color: var(--color-danger);
+  }
+}
